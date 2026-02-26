@@ -10,7 +10,7 @@
   <meta property="og:title" content="Ceci Cabrera | Sanación Energética" />
   <meta property="og:description" content="Terapeuta Holística. Reiki, Péndulo, Carta Astral, Tarot y Sistémica. Sesiones presenciales y online." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://iili.io/qf7IBII.md.jpg" />
+  <meta property="og:image" content="https://iili.io/qfY3COu.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,8 +31,9 @@
       --accent:#88D7FF;
       --accent2:#C3A0FF;
 
-      --overlay-img:url("https://iili.io/qf5PKCv.md.jpg");
-      --overlay-tint:rgba(0,0,0,.58);
+      /* Overlay global */
+      --overlay-img:url("https://iili.io/qfYCcbt.jpg");
+      --overlay-tint:rgba(0,0,0,.34); /* mas leve para que se vea */
 
       --radius:20px;
       --radius2:26px;
@@ -49,14 +50,14 @@
       --muted:rgba(13,19,34,.70);
       --line:rgba(13,19,34,.14);
 
-      --glass:rgba(255,255,255,.52);
-      --glass2:rgba(255,255,255,.32);
+      --glass:rgba(255,255,255,.56);
+      --glass2:rgba(255,255,255,.34);
       --blur:18px;
 
       --accent:#0A66FF;
       --accent2:#7B3CFF;
 
-      --overlay-tint:rgba(255,255,255,.54);
+      --overlay-tint:rgba(255,255,255,.24);
 
       --shadow: 0 18px 65px rgba(11,15,23,.18);
     }
@@ -71,7 +72,7 @@
       overflow-x:hidden;
     }
 
-    /* Overlay global */
+    /* Overlay global (SI, lo tiene) */
     body::before{
       content:"";
       position:fixed;
@@ -82,6 +83,7 @@
       background-repeat:no-repeat;
       z-index:-3;
       transform:translateZ(0);
+      filter: saturate(1.05) contrast(1.02);
     }
     body::after{
       content:"";
@@ -94,7 +96,6 @@
     a{color:inherit;text-decoration:none}
     .container{width:min(var(--container), calc(100% - 32px)); margin:0 auto}
 
-    /* Topbar */
     header{
       position:sticky;
       top:0;
@@ -108,8 +109,9 @@
       background: linear-gradient(to bottom, rgba(0,0,0,.30), rgba(0,0,0,.10));
     }
     [data-theme="light"] header{
-      background: linear-gradient(to bottom, rgba(255,255,255,.80), rgba(255,255,255,.46));
+      background: linear-gradient(to bottom, rgba(255,255,255,.82), rgba(255,255,255,.50));
     }
+
     .topbar{
       display:flex;
       align-items:center;
@@ -117,6 +119,7 @@
       gap:12px;
       width:100%;
     }
+
     .brand{
       display:flex;
       flex-direction:column;
@@ -141,6 +144,7 @@
     }
 
     .actions{display:flex; align-items:center; gap:10px; flex-shrink:0}
+
     .btn{
       height:40px;
       padding:0 14px;
@@ -157,40 +161,50 @@
       cursor:pointer;
       transition: transform .15s ease, border-color .15s ease, filter .15s ease;
       user-select:none;
+      color: var(--text);
     }
-    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.26); filter:saturate(1.05)}
+    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.26); filter:saturate(1.06)}
     [data-theme="light"] .btn:hover{border-color:rgba(13,19,34,.22)}
     .btn.primary{
-      border:1px solid rgba(136,215,255,.46);
-      background:linear-gradient(135deg, rgba(136,215,255,.28), rgba(195,160,255,.18));
+      border:1px solid rgba(136,215,255,.52);
+      background:linear-gradient(135deg, rgba(136,215,255,.30), rgba(195,160,255,.20));
     }
     [data-theme="light"] .btn.primary{
       border:1px solid rgba(10,102,255,.30);
       background:linear-gradient(135deg, rgba(10,102,255,.14), rgba(123,60,255,.10));
     }
-    .toggle{width:44px; padding:0}
-    .toggle svg{width:18px; height:18px}
 
-    /* Layout */
+    /* Toggle bien visible (no queda negro) */
+    .toggle{
+      width:44px;
+      padding:0;
+      color: var(--text);
+      border-color: rgba(255,255,255,.22);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+    }
+    [data-theme="light"] .toggle{
+      color: #0D1322;
+      border-color: rgba(13,19,34,.20);
+      box-shadow: 0 10px 26px rgba(11,15,23,.10);
+    }
+    .toggle svg{width:18px; height:18px}
+    .toggle svg path{ stroke: currentColor; }
+
     main{padding: 18px 0 0}
     section{padding: 22px 0}
 
-    .hero{
-      padding-top: 18px;
-    }
+    .hero{padding-top: 18px;}
     .heroGrid{
       display:grid;
       grid-template-columns: 1.15fr .85fr;
       gap:14px;
       align-items:stretch;
     }
-    @media (max-width: 940px){
-      .heroGrid{grid-template-columns:1fr}
-    }
+    @media (max-width: 940px){ .heroGrid{grid-template-columns:1fr} }
 
     .card{
       border:1px solid var(--line);
-      border-radius:var(--radius2);
+      border-radius:26px;
       background:linear-gradient(180deg, var(--glass), var(--glass2));
       backdrop-filter: blur(var(--blur));
       -webkit-backdrop-filter: blur(var(--blur));
@@ -248,7 +262,7 @@
       padding:7px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.10);
       color: var(--muted);
     }
     [data-theme="light"] .badge{background: rgba(13,19,34,.04)}
@@ -259,30 +273,27 @@
       gap:10px;
       flex-wrap:wrap;
     }
-
     .miniInfo{
       margin-top:14px;
       border:1px solid var(--line);
       border-radius: 16px;
       padding: 12px;
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.10);
       color: var(--muted);
       line-height:1.55;
       font-size:13px;
     }
     [data-theme="light"] .miniInfo{background: rgba(13,19,34,.04)}
 
-    /* Side bento */
     .bento{
       display:grid;
       grid-template-rows:auto 1fr auto;
       gap:12px;
       height:100%;
     }
-
     .bentoBox{
       border:1px solid var(--line);
-      border-radius: var(--radius2);
+      border-radius:26px;
       background: linear-gradient(180deg, var(--glass), var(--glass2));
       backdrop-filter: blur(var(--blur));
       -webkit-backdrop-filter: blur(var(--blur));
@@ -303,23 +314,23 @@
       line-height:1.6;
     }
 
-    .bentoImg{
-      min-height: 210px;
-      background-image: url("https://iili.io/qf7uKxI.md.jpg");
-      background-size: cover;
-      background-position:center;
-      position:relative;
+    .heroImgWrap{padding: 14px;}
+    .heroImg{
+      width: 100%;
+      max-height: 240px;
+      height: auto;
+      display:block;
+      object-fit: contain;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 18px 60px rgba(0,0,0,.22);
     }
-    .bentoImg::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(to top, rgba(0,0,0,.60), rgba(0,0,0,.10));
-    }
-    [data-theme="light"] .bentoImg::after{
-      background: linear-gradient(to top, rgba(255,255,255,.22), rgba(255,255,255,.02));
+    [data-theme="light"] .heroImg{
+      background: rgba(13,19,34,.03);
+      box-shadow: 0 18px 60px rgba(11,15,23,.12);
     }
 
-    /* Section headings */
     .sectionHead{
       display:flex;
       justify-content:space-between;
@@ -341,7 +352,6 @@
       max-width: 60ch;
     }
 
-    /* Services */
     .servicesGrid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -352,7 +362,7 @@
 
     .svc{
       border:1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: 20px;
       background: linear-gradient(180deg, var(--glass), var(--glass2));
       backdrop-filter: blur(var(--blur));
       -webkit-backdrop-filter: blur(var(--blur));
@@ -360,24 +370,20 @@
       box-shadow: 0 16px 55px rgba(0,0,0,.20);
       display:flex;
       flex-direction:column;
-      min-height: 290px;
+      min-height: 300px;
       position:relative;
     }
 
+    /* IMAGEN COMPLETA: usamos contain en vez de cover */
     .svcMedia{
-      height: 150px;
-      background-size: cover;
-      background-position:center;
+      height: 165px;
+      background-size: contain;     /* clave */
+      background-position: center;  /* clave */
+      background-repeat: no-repeat; /* clave */
+      background-color: rgba(255,255,255,.06);
       position:relative;
     }
-    .svcMedia::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(to top, rgba(0,0,0,.66), rgba(0,0,0,.08));
-    }
-    [data-theme="light"] .svcMedia::after{
-      background: linear-gradient(to top, rgba(255,255,255,.24), rgba(255,255,255,.02));
-    }
+    [data-theme="light"] .svcMedia{ background-color: rgba(13,19,34,.03); }
 
     .svcBody{
       padding: 14px 14px 16px;
@@ -411,7 +417,7 @@
       padding:7px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.10);
       color: var(--muted);
       max-width: 100%;
       white-space:nowrap;
@@ -420,7 +426,6 @@
     }
     [data-theme="light"] .tag{background: rgba(13,19,34,.04)}
 
-    /* Steps */
     .steps{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -429,7 +434,7 @@
     @media (max-width: 900px){ .steps{grid-template-columns:1fr;} }
     .step{
       border:1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: 20px;
       background: linear-gradient(180deg, var(--glass), var(--glass2));
       backdrop-filter: blur(var(--blur));
       -webkit-backdrop-filter: blur(var(--blur));
@@ -449,10 +454,9 @@
       display:block;
     }
 
-    /* CTA */
     .cta{
       border:1px solid var(--line);
-      border-radius: var(--radius2);
+      border-radius: 26px;
       background: linear-gradient(135deg, rgba(136,215,255,.18), rgba(195,160,255,.12));
       backdrop-filter: blur(var(--blur));
       -webkit-backdrop-filter: blur(var(--blur));
@@ -486,31 +490,33 @@
     }
     footer a{text-decoration:underline}
 
-    /* WhatsApp floating */
+    /* WhatsApp flotante sin contornos feos */
     .wa-float{
       position:fixed;
       right:16px;
       bottom:16px;
       z-index:80;
-      width:56px;
-      height:56px;
+      width:58px;
+      height:58px;
       border-radius:999px;
       display:flex;
       align-items:center;
       justify-content:center;
-      border:1px solid rgba(255,255,255,.22);
-      background: rgba(0,0,0,.22);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      border:none;                 /* sin borde */
+      outline:none;
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.38);
+      transition: transform .15s ease, filter .15s ease;
     }
     [data-theme="light"] .wa-float{
-      border:1px solid rgba(13,19,34,.16);
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.72);
+      box-shadow: 0 20px 55px rgba(11,15,23,.16);
     }
-    .wa-float img{width:30px;height:30px;display:block}
+    .wa-float:hover{ transform: translateY(-2px); filter:saturate(1.05); }
+    .wa-float img{ width: 34px; height: 34px; display:block; }
 
-    /* Mobile safety: no overflow */
     img,svg{max-width:100%}
   </style>
 </head>
@@ -528,8 +534,8 @@
           <a class="btn primary" href="#contacto">Consultar</a>
           <button class="btn toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 18a6 6 0 1 0 0-12a6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 18a6 6 0 1 0 0-12a6 6 0 0 0 0 12Z" stroke-width="2"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </button>
         </div>
@@ -573,7 +579,9 @@
             </div>
 
             <div class="bentoBox">
-              <div class="bentoImg" aria-hidden="true"></div>
+              <div class="heroImgWrap">
+                <img class="heroImg" src="https://iili.io/qfY3COu.png" alt="Imagen principal" />
+              </div>
             </div>
 
             <div class="bentoBox">
@@ -586,6 +594,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
@@ -626,7 +635,7 @@
             <div class="svcMedia" style="background-image:url('https://iili.io/qf7uKxI.md.jpg')"></div>
             <div class="svcBody">
               <h3 class="svcTitle">Carta Astral</h3>
-              <p class="svcDesc">Interpretación de tu mapa natal para comprender patrones, talentos y etapas que estás transitando.</p>
+              <p class="svcDesc">Interpretación de tu mapa natal para comprender patrones, talentos y la etapa que estás transitando.</p>
               <div class="svcMeta">
                 <span class="tag">Con tus datos</span>
                 <a class="btn" href="#contacto">Consultar</a>
@@ -635,31 +644,7 @@
           </article>
 
           <article class="svc">
-            <div class="svcMedia" style="background-image:url('https://iili.io/qf7u5W7.md.jpg')"></div>
-            <div class="svcBody">
-              <h3 class="svcTitle">Sistémica</h3>
-              <p class="svcDesc">Mirada profunda para ordenar vínculos, soltar cargas heredadas y comprender lo que se repite.</p>
-              <div class="svcMeta">
-                <span class="tag">Proceso personal</span>
-                <a class="btn" href="#contacto">Consultar</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="svc">
-            <div class="svcMedia" style="background-image:url('https://iili.io/qf7u8eR.md.jpg')"></div>
-            <div class="svcBody">
-              <h3 class="svcTitle">Sanación Energética</h3>
-              <p class="svcDesc">Sesión integral para trabajar emociones, energía y desbloqueos, según lo que estés necesitando hoy.</p>
-              <div class="svcMeta">
-                <span class="tag">A medida</span>
-                <a class="btn" href="#contacto">Consultar</a>
-              </div>
-            </div>
-          </article>
-
-          <article class="svc">
-            <div class="svcMedia" style="background-image:url('https://iili.io/qf7u8eR.md.jpg')"></div>
+            <div class="svcMedia" style="background-image:url('https://iili.io/qfYuL8b.jpg')"></div>
             <div class="svcBody">
               <h3 class="svcTitle">Tarot</h3>
               <p class="svcDesc">Lectura para claridad y enfoque. Ideal para ver opciones, comprender aprendizajes y próximos pasos.</p>
@@ -669,9 +654,23 @@
               </div>
             </div>
           </article>
+
+          <article class="svc">
+            <div class="svcMedia" style="background-image:url('https://iili.io/qf7u5W7.md.jpg')"></div>
+            <div class="svcBody">
+              <h3 class="svcTitle">Sistémica</h3>
+              <p class="svcDesc">Mirada profunda para ordenar vínculos, soltar cargas heredadas y entender lo que se repite.</p>
+              <div class="svcMeta">
+                <span class="tag">Proceso personal</span>
+                <a class="btn" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
-    </section>    <section id="como">
+    </section>
+
+    <section id="como">
       <div class="container">
         <div class="sectionHead">
           <h2>Cómo trabajo</h2>
@@ -700,7 +699,7 @@
         <div class="cta">
           <div style="min-width:260px">
             <h3>¿Querés coordinar una sesión?</h3>
-            <p>Escribime por Instagram y te respondo para guiarte y agendar. Si preferís WhatsApp, lo activo apenas me pases el número.</p>
+            <p>Escribime por Instagram y te respondo para guiarte y agendar. Si preferís WhatsApp, también podés escribirme desde el botón flotante.</p>
           </div>
           <div style="display:flex; gap:10px; flex-wrap:wrap;">
             <a class="btn primary" href="https://instagram.com/ceciliacabreraholistica" target="_blank" rel="noopener">Enviar DM</a>
@@ -717,8 +716,8 @@
       </div>
     </footer>
 
-    <!-- WhatsApp flotante (se activa al poner número real) -->
-    <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" style="display:none;">
+    <!-- WhatsApp flotante (activo) -->
+    <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
       <img src="https://iili.io/fm1NjzQ.jpg" alt="WhatsApp" />
     </a>
   </main>
@@ -731,7 +730,7 @@
       document.getElementById("y").textContent = new Date().getFullYear();
 
       // Theme toggle
-      const KEY = "theme_ceci_demo_v2";
+      const KEY = "theme_ceci_demo_v4";
       const toggle = document.getElementById("themeToggle");
       function applyTheme(t){
         root.setAttribute("data-theme", t);
@@ -745,15 +744,11 @@
         applyTheme(current === "dark" ? "light" : "dark");
       });
 
-      // WhatsApp (si pasás el número real, se muestra el botón flotante)
-      const WHATSAPP_NUMBER = ""; // ej: 54911XXXXXXXXX
+      // WhatsApp flotante (poné el número real y listo)
+      const WHATSAPP_NUMBER = "54911XXXXXXXXX"; // <-- reemplazá
       const WA_TEXT = "Hola Ceci! Quería hacer una consulta por una sesión.";
-      const waFloat = document.getElementById("waFloat");
-
-      if(WHATSAPP_NUMBER && WHATSAPP_NUMBER.trim().length > 6){
-        waFloat.style.display = "flex";
-        waFloat.href = "https://wa.me/" + WHATSAPP_NUMBER.replace(/\D/g,"") + "?text=" + encodeURIComponent(WA_TEXT);
-      }
+      const wa = document.getElementById("waFloat");
+      wa.href = "https://wa.me/" + WHATSAPP_NUMBER.replace(/\D/g,"") + "?text=" + encodeURIComponent(WA_TEXT);
     })();
   </script>
 </body>
