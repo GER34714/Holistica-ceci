@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ceci Cabrera | Sanación Energética</title>
+  <meta name="description" content="Terapeuta Holística. Reiki, Péndulo, Carta Astral, Tarot y Sistémica. Sesiones presenciales y online." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ceci Cabrera | Sanación Energética" />
+  <meta property="og:description" content="Terapeuta Holística. Reiki, Péndulo, Carta Astral, Tarot y Sistémica. Sesiones presenciales y online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://iili.io/qf7IBII.md.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #0b0f17;
+      --text: #eef3ff;
+      --muted: rgba(238,243,255,.75);
+      --line: rgba(255,255,255,.14);
+
+      --glass: rgba(18, 24, 38, .42);
+      --glass2: rgba(18, 24, 38, .28);
+      --blur: 16px;
+
+      --brand: #8bd0ff;
+      --brand2:#bfa0ff;
+
+      --overlay-img: url('https://iili.io/qf5PKCv.md.jpg');
+      --overlay-tint: rgba(0,0,0,.55);
+
+      --shadow: 0 18px 60px rgba(0,0,0,.35);
+
+      --radius: 18px;
+      --radius2: 22px;
+
+      --container: 1100px;
+    }
+
+    [data-theme="light"]{
+      --bg: #f6f8ff;
+      --text: #0d1322;
+      --muted: rgba(13,19,34,.72);
+      --line: rgba(13,19,34,.14);
+
+      --glass: rgba(255,255,255,.44);
+      --glass2: rgba(255,255,255,.30);
+      --blur: 16px;
+
+      --brand: #0a66ff;
+      --brand2: #7b3cff;
+
+      --overlay-tint: rgba(255,255,255,.52);
+
+      --shadow: 0 18px 60px rgba(11,15,23,.18);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x:hidden;
+    }
+
+    /* Overlay global */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image: var(--overlay-img);
+      background-size: cover;
+      background-position: center;
+      background-repeat:no-repeat;
+      opacity: 1;
+      z-index:-3;
+      transform: translateZ(0);
+    }
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background: var(--overlay-tint);
+      z-index:-2;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(var(--container), calc(100% - 32px)); margin:0 auto; }
+
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      background: linear-gradient(to bottom, rgba(0,0,0,.26), rgba(0,0,0,.08));
+      border-bottom: 1px solid var(--line);
+    }
+    [data-theme="light"] .topbar{
+      background: linear-gradient(to bottom, rgba(255,255,255,.72), rgba(255,255,255,.42));
+    }
+
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding: 12px 0;
+    }
+    .brand{
+      display:flex; flex-direction:column; line-height:1.1;
+      min-width: 0;
+    }
+    .brand strong{ font-size: 14px; letter-spacing:.2px; }
+    .brand span{ font-size: 12px; color: var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+    .actions{
+      display:flex; align-items:center; gap:10px;
+      flex-shrink:0;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      height: 40px; padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: none;
+      font-weight: 700;
+      font-size: 13px;
+      cursor:pointer;
+      transition: transform .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.24); }
+    [data-theme="light"] .btn:hover{ border-color: rgba(13,19,34,.22); }
+
+    .btn.primary{
+      border: 1px solid rgba(139,208,255,.45);
+      background: linear-gradient(135deg, rgba(139,208,255,.32), rgba(191,160,255,.22));
+    }
+    [data-theme="light"] .btn.primary{
+      border: 1px solid rgba(10,102,255,.30);
+      background: linear-gradient(135deg, rgba(10,102,255,.14), rgba(123,60,255,.10));
+    }
+
+    .toggle{
+      width: 44px; padding:0;
+    }
+    .toggle svg{ width:18px; height:18px; }
+
+    /* Hero */
+    .hero{
+      padding: 28px 0 10px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .hero-card{
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: var(--shadow);
+      padding: 22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(900px 500px at 12% 10%, rgba(139,208,255,.18), transparent 55%),
+                  radial-gradient(900px 500px at 88% 30%, rgba(191,160,255,.14), transparent 60%);
+      z-index:0;
+    }
+    .hero-card > *{ position:relative; z-index:1; }
+
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      font-size: 12px; font-weight:800; letter-spacing:.18em;
+      text-transform:uppercase;
+      color: var(--muted);
+    }
+    .title{
+      margin:10px 0 6px;
+      font-size: clamp(30px, 3.8vw, 44px);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+    .subtitle{
+      margin:0 0 12px;
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 56ch;
+    }
+
+    .chips{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin: 12px 0 18px;
+    }
+    .chip{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+    }
+    [data-theme="light"] .chip{ background: rgba(13,19,34,.04); }
+
+    .hero-cta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top: 6px;
+    }
+
+    .mini-note{
+      margin-top: 14px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    [data-theme="light"] .mini-note{ background: rgba(13,19,34,.04); }
+
+    .side-card{
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      gap: 14px;
+      overflow:hidden;
+    }
+
+    .side-card h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:-0.01em;
+    }
+    .side-card p{
+      margin:8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.55;
+    }
+
+    /* Section */
+    section{ padding: 22px 0; }
+    .section-head{
+      display:flex; justify-content:space-between; align-items:flex-end;
+      gap:14px; margin-bottom: 12px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 18px;
+      letter-spacing:-0.01em;
+    }
+    .section-head .hint{
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.35;
+      max-width: 52ch;
+    }
+
+    /* Cards grid */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 980px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px){ .grid{ grid-template-columns: 1fr; } }
+
+    .service{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      min-height: 260px;
+      position:relative;
+    }
+
+    .service .media{
+      height: 140px;
+      background-size: cover;
+      background-position: center;
+      position:relative;
+    }
+    .service .media::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,.10));
+    }
+    [data-theme="light"] .service .media::after{
+      background: linear-gradient(to top, rgba(255,255,255,.18), rgba(255,255,255,.00));
+    }
+
+    .service .content{
+      padding: 14px 14px 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      flex:1;
+    }
+    .service h3{
+      margin:0;
+      font-size: 15px;
+      letter-spacing:-0.01em;
+    }
+    .service p{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .service .row{
+      margin-top:auto;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .pill{
+      font-size:12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      max-width: 100%;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    [data-theme="light"] .pill{ background: rgba(13,19,34,.04); }
+
+    /* Steps */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px){ .steps{ grid-template-columns: 1fr; } }
+
+    .step{
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: 0 14px 40px rgba(0,0,0,.14);
+      padding: 14px;
+    }
+    .step strong{
+      display:block;
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+    .step span{ color: var(--muted); font-size: 13px; line-height:1.55; }
+
+    /* FAQ */
+    .faq{
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    details{
+      border-top: 1px solid var(--line);
+      padding: 14px;
+    }
+    details:first-child{ border-top: none; }
+    summary{
+      cursor:pointer;
+      font-weight: 800;
+      font-size: 13px;
+      list-style:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta{
+      border: 1px solid var(--line);
+      border-radius: var(--radius2);
+      background: linear-gradient(135deg, rgba(139,208,255,.18), rgba(191,160,255,.12));
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+    .cta .left{
+      display:flex;
+      flex-direction:column;
+      gap: 6px;
+      min-width: 240px;
+    }
+    .cta h3{ margin:0; font-size: 16px; }
+    .cta p{ margin:0; color: var(--muted); font-size: 13px; line-height:1.5; }
+
+    footer{
+      padding: 18px 0 70px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--line);
+      margin-top: 14px;
+    }
+    footer a{ text-decoration: underline; }
+
+    /* WhatsApp floating */
+    .wa-float{
+      position:fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 80;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(0,0,0,.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+    }
+    [data-theme="light"] .wa-float{
+      border: 1px solid rgba(13,19,34,.16);
+      background: rgba(255,255,255,.60);
+    }
+    .wa-float img{
+      width: 30px;
+      height: 30px;
+      display:block;
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <header class="topbar">
+    <div class="container">
+      <div class="topbar-inner">
+        <div class="brand">
+          <strong>Ceci Cabrera</strong>
+          <span>Sanación Energética • Sesiones presenciales y online</span>
+        </div>
+
+        <div class="actions">
+          <a class="btn primary" href="#contacto">Consultar</a>
+          <button class="btn toggle" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 18a6 6 0 1 0 0-12a6 6 0 0 0 0 12Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="kicker">Terapeuta Holística</div>
+            <h1 class="title">Conocé tu mejor versión</h1>
+            <p class="subtitle">Transformá tu energía con un enfoque cálido y personalizado. Elegí el servicio o escribime y te guío.</p>
+
+            <div class="chips">
+              <span class="chip">Reiki</span>
+              <span class="chip">Péndulo</span>
+              <span class="chip">Carta Astral</span>
+              <span class="chip">Tarot</span>
+              <span class="chip">Sistémica</span>
+            </div>
+
+            <div class="hero-cta">
+              <a class="btn primary" href="#servicios">Ver servicios</a>
+              <a class="btn" href="#contacto">Reservar / Consultar</a>
+            </div>
+
+            <div class="mini-note">Sesiones presenciales y online. Coordinación por DM.</div>
+          </div>
+
+          <aside class="side-card">
+            <div>
+              <h3>Demo lista para editar</h3>
+              <p>Dejé títulos y descripciones simples para que puedas reemplazar rápido por los servicios reales y el CTA final.</p>
+            </div>
+            <div>
+              <a class="btn" href="https://instagram.com/ceciliacabreraholistica" target="_blank" rel="noopener">Instagram</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Servicios</h2>
+          </div>
+          <div class="hint">Cards cristalinas para que se vea el overlay. Editá títulos y textos según lo que ofrezca.</div>
+        </div>
+
+        <div class="grid">
+          <article class="service">
+            <div class="media" style="background-image:url('https://iili.io/qf7IBII.md.jpg')"></div>
+            <div class="content">
+              <h3>Servicio 1</h3>
+              <p>Descripción breve editable. En 1 o 2 líneas para que se lea rápido.</p>
+              <div class="row">
+                <span class="pill">Sesiones presenciales y online</span>
+                <a class="btn" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="media" style="background-image:url('https://iili.io/qf7TLNV.md.jpg')"></div>
+            <div class="content">
+              <h3>Servicio 2</h3>
+              <p>Descripción breve editable. En 1 o 2 líneas para que se lea rápido.</p>
+              <div class="row">
+                <span class="pill">Turnos por DM</span>
+                <a class="btn" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="media" style="background-image:url('https://iili.io/qf7uKxI.md.jpg')"></div>
+            <div class="content">
+              <h3>Servicio 3</h3>
+              <p>Descripción breve editable. En 1 o 2 líneas para que se lea rápido.</p>
+              <div class="row">
+                <span class="pill">Acompañamiento</span>
+                <a class="btn" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="media" style="background-image:url('https://iili.io/qf7u5W7.md.jpg')"></div>
+            <div class="content">
+              <h3>Servicio 4</h3>
+              <p>Descripción breve editable. En 1 o 2 líneas para que se lea rápido.</p>
+              <div class="row">
+                <span class="pill">Energía y claridad</span>
+                <a class="btn" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="media" style="background-image:url('https://iili.io/qf7u8eR.md.jpg')"></div>
+            <div class="content">
+              <h3>Servicio 5</h3>
+              <p>Descripción breve editable. En 1 o 2 líneas para que se lea rápido.</p>
+              <div class="row">
+                <span class="pill">Proceso personal</span>
+                <a class="btn" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="service">
+            <div class="media" style="background-image:url('https://iili.io/qf7u8eR.md.jpg')"></div>
+            <div class="content">
+              <h3>Tarot</h3>
+              <p>Lectura orientativa para claridad y enfoque. (Texto editable)</p>
+              <div class="row">
+                <span class="pill">Consulta por DM</span>
+                <a class="btn" href="#contacto">Consultar</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+  </section><section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Cómo trabajo</h2>
+          </div>
+          <div class="hint">Simple, directo y con acompañamiento.</div>
+        </div>
+
+        <div class="steps">
+          <div class="step">
+            <strong>1) Me contás tu situación</strong>
+            <span>Por DM me decís qué estás buscando y te hago 2 o 3 preguntas para orientarte.</span>
+          </div>
+          <div class="step">
+            <strong>2) Elegimos el enfoque</strong>
+            <span>Definimos el servicio ideal (Reiki, Péndulo, Carta Astral, Tarot o Sistémica).</span>
+          </div>
+          <div class="step">
+            <strong>3) Coordinamos la sesión</strong>
+            <span>Presencial u online. Te paso disponibilidad y reservamos el turno.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Preguntas frecuentes</h2>
+          </div>
+          <div class="hint">Ajustá estas respuestas según tu forma de trabajo.</div>
+        </div>
+
+        <div class="faq">
+          <details open>
+            <summary>¿Cuánto dura una sesión?</summary>
+            <p>Depende del servicio. Normalmente dura entre 45 y 60 minutos. (Editable)</p>
+          </details>
+          <details>
+            <summary>¿Online funciona igual?</summary>
+            <p>Sí, se puede trabajar online coordinando por DM y siguiendo las indicaciones. (Editable)</p>
+          </details>
+          <details>
+            <summary>¿Cómo reservo?</summary>
+            <p>Escribime por DM, te paso disponibilidad y coordinamos el turno. (Editable)</p>
+          </details>
+          <details>
+            <summary>¿Qué necesito para empezar?</summary>
+            <p>Solo ganas de trabajar tu proceso. Si es Carta Astral, te voy a pedir datos básicos. (Editable)</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="cta">
+          <div class="left">
+            <h3>¿List@ para empezar?</h3>
+            <p>Escribime y coordinamos. Si no sabés qué elegir, te guío según tu situación.</p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn primary" id="ctaIg" href="https://instagram.com/ceciliacabreraholistica" target="_blank" rel="noopener">Enviar DM por Instagram</a>
+            <a class="btn" href="#servicios">Ver servicios</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+          <span>© <span id="y"></span> Ceci Cabrera</span>
+          <span><a href="https://ciborg347.onrender.com" target="_blank" rel="noopener">Creado y diseñado por Ciborg 347</a></span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- WhatsApp flotante (placeholder, reemplazá el número) -->
+    <a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <img src="https://iili.io/fm1NjzQ.jpg" alt="WhatsApp" />
+    </a>
+  </main>
+
+  <script>
+    (function(){
+      const root = document.body;
+      const toggle = document.getElementById('themeToggle');
+      const year = document.getElementById('y');
+      year.textContent = new Date().getFullYear();
+
+      // CTA links
+      const ig = "https://instagram.com/ceciliacabreraholistica";
+      document.getElementById('ctaIg').setAttribute('href', ig);
+
+      // WhatsApp (reemplazar por el número real si lo tenés)
+      const WHATSAPP_NUMBER = "54911XXXXXXXXX";
+      const WA_TEXT = encodeURIComponent("Hola Ceci! Quiero hacer una consulta por una sesión.");
+      const waLink = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + WA_TEXT;
+      const waFloat = document.getElementById('waFloat');
+      waFloat.setAttribute('href', waLink);
+
+      // Theme
+      const KEY = "demo_theme_ceci";
+      function applyTheme(t){
+        root.setAttribute("data-theme", t);
+        localStorage.setItem(KEY, t);
+      }
+      const saved = localStorage.getItem(KEY);
+      if(saved === "light" || saved === "dark") applyTheme(saved);
+
+      toggle.addEventListener("click", function(){
+        const current = root.getAttribute("data-theme") || "dark";
+        applyTheme(current === "dark" ? "light" : "dark");
+      });
+    })();
+  </script>
+</body>
+</html>
